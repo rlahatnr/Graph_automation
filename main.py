@@ -36,6 +36,9 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                     size=int(self.spinBox.text())
                 )
             )
+            if self.checkBox.isChecked():
+                fig['layout']['yaxis']['autorange'] = "reversed"
+
             fig.write_html(r'{}.html'.format(self.lineEdit.text()))
             time.sleep(1)
             url = QUrl.fromLocalFile(r'{}.html'.format(self.lineEdit.text()))
