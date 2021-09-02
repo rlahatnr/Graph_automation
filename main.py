@@ -23,9 +23,10 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         try:
             txt = self.lineEdit_2.text().strip(',').split(',')
             if self.comboBox_2.currentText() != '없음':
-                fig = px.line(df, x=self.comboBox.currentText(), y=txt, title=self.lineEdit.text(), color=self.comboBox_2.currentText())
+                fig = px.line(df, x=self.comboBox.currentText(), y=txt, title=self.lineEdit.text(), color=self.comboBox_2.currentText(), text='value')
             else:
-                fig = px.line(df, x=self.comboBox.currentText(), y=txt, title=self.lineEdit.text())
+                fig = px.line(df, x=self.comboBox.currentText(), y=txt, title=self.lineEdit.text(), text='value')
+
             fig.update_traces(mode="markers+text+lines", textposition='top center', hovertemplate=None)
             fig.update_layout(hovermode="x")
             fig.update_layout(

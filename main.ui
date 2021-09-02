@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1494</width>
-    <height>1135</height>
+    <width>1536</width>
+    <height>1302</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,18 +58,8 @@
           <string>설정</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="2" column="2">
-           <widget class="QLineEdit" name="lineEdit_2">
-            <property name="font">
-             <font>
-              <family>맑은 고딕</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
             <property name="font">
              <font>
               <family>맑은 고딕</family>
@@ -77,7 +67,17 @@
              </font>
             </property>
             <property name="text">
-             <string>color</string>
+             <string>Title</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="font">
+             <font>
+              <family>맑은 고딕</family>
+              <pointsize>10</pointsize>
+             </font>
             </property>
            </widget>
           </item>
@@ -94,26 +94,13 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
-           <widget class="QLineEdit" name="lineEdit">
+          <item row="2" column="2">
+           <widget class="QLineEdit" name="lineEdit_2">
             <property name="font">
              <font>
               <family>맑은 고딕</family>
               <pointsize>10</pointsize>
              </font>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="font">
-             <font>
-              <family>맑은 고딕</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Y</string>
             </property>
            </widget>
           </item>
@@ -130,6 +117,32 @@
               <string>없음</string>
              </property>
             </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <family>맑은 고딕</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Y</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="font">
+             <font>
+              <family>맑은 고딕</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>color</string>
+            </property>
            </widget>
           </item>
           <item row="5" column="2">
@@ -152,19 +165,6 @@
               <string>없음</string>
              </property>
             </item>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label">
-            <property name="font">
-             <font>
-              <family>맑은 고딕</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Title</string>
-            </property>
            </widget>
           </item>
          </layout>
