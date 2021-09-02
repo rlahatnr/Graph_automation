@@ -18,6 +18,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.tableWidget.selectionModel().selectionChanged.connect(self.select_y)
         self.pushButton_4.clicked.connect(self.make_graph)
+        self.spinBox.setValue(20)
 
     def make_graph(self):
         try:
@@ -32,7 +33,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             fig.update_layout(
                 font=dict(
                     family="Courier New, monospace",
-                    size=30
+                    size=int(self.spinBox.text())
                 )
             )
             fig.write_html(r'{}.html'.format(self.lineEdit.text()))
