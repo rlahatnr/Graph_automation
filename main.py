@@ -3,14 +3,7 @@ from PyQt5.QtCore import QUrl
 from main_ui import Ui_MainWindow
 import sys
 import plotly.express as px
-from selenium.webdriver.common.keys import Keys
 import time
-import random
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
-import chromedriver_autoinstaller
 import pandas as pd
 
 class MainWindow(QMainWindow,Ui_MainWindow):
