@@ -13,7 +13,6 @@ from selenium import webdriver
 import chromedriver_autoinstaller
 import pandas as pd
 
-
 class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -29,58 +28,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.comboBox_3.addItems(['Bar', 'Line', 'Pie'])
         self.spinBox.setValue(20)
         self.comboBox_3.currentTextChanged.connect(self.status)
-        self.pushButton.clicked.connect(self.search_score)
-
-    def search_score(self):
-        chromedriver_autoinstaller.install()
-        driver = webdriver.Chrome()
-
-        outerbox = []
-        for key in self.lineEdit_3.text().replace(' ','').split(','):
-            driver.get('https://itemscout.io/')
-            driver.implicitly_wait(10)
-            time.sleep(random.random())
-            search = driver.find_element(By.XPATH, '//input[@type="search"]')
-            search.send_keys(key)
-            search.send_keys(Keys.ENTER)
-            WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".keyword-title-word")))
-            rows = driver.find_elements(By.CLASS_NAME, 'search-page-summary-row')
-
-            box = []
-            for i in rows:
-                for _ in i.find_elements(By.CLASS_NAME, 'count-stat'):
-                    box.append(i.text)
-                    break
-
-            box2 = {}
-            for i in box:
-                infos = i.split('\n')
-                box2['키워드'] = key
-                for idx, val in enumerate(infos):
-                    if idx != 0 and idx % 2 != 0:
-                        if infos[0] + ' ' + infos[idx] not in box2:
-                            box2[infos[0] + ' ' + infos[idx]] = infos[idx + 1]
-                        else:
-                            box2[infos[0] + ' ' + infos[idx]] += infos[idx + 1]
-
-            table = driver.find_element(By.CLASS_NAME, 'market-trend-score.keyword_guide_market_trend_step8')
-            for i in table.find_elements(By.CLASS_NAME, 'score-title')[:-1]:
-                if i.text.split('\n')[1] not in box2:
-                    box2[i.text.split('\n')[1]] = i.text.split('\n')[0]
-                else:
-                    box2[i.text.split('\n')[1]] += i.text.split('\n')[0]
-
-            outerbox.append(box2)
-            time.sleep(3)
-        df = pd.DataFrame(outerbox)
-        self.tableWidget_2.setRowCount(df.shape[0])
-        self.tableWidget_2.setColumnCount(df.shape[1])
-        self.tableWidget_2.setHorizontalHeaderLabels(df.columns)
-
-        for i in range(df.shape[0]):
-            for j in range(df.shape[1]):
-                self.tableWidget_2.setItem(i, j, QTableWidgetItem(str(df.iat[i, j])))
-
 
     def status(self):
         if self.comboBox_3.currentText() != 'Pie':
